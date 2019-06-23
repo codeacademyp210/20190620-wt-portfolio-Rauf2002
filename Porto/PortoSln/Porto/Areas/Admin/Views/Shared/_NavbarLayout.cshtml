@@ -1,0 +1,87 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/bootstrapLux.css" />
+    <link href="~/Content/adminIcon.jpg" rel="icon" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <title>Admin</title>
+</head>
+<body>
+    <div class="bs-component">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="@Url.Action("Index","AdminHome")">Home</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarColor03">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item ">
+                        <a class="nav-link" href="@Url.Action("Index","Setting")">Settings <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link" href="@Url.Action("Index","AboutNav")">About Nav <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Blog","AdminHome")">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Education","AdminHome")">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Experience","AdminHome")">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Language","AdminHome")" class="nav-link">Language</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("PorButton","AdminHome")" class="nav-link">Portfolio Buttons</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("PorPhoto","AdminHome")" class="nav-link">Portfolio Photos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Recommendation","AdminHome")" class="nav-link">Recommendation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="@Url.Action("Skill","AdminHome")" class="nav-link">Skill</a>
+                    </li>
+                </ul>
+            </div>
+
+            <button type="button" class="btn btn-primary" id="logOut">Log Out</button>
+
+        </nav>
+
+    </div>
+
+    @RenderBody()
+
+
+    <script>
+        $('#logOut').click(function () {
+            swal({
+                title: "Are you sure?",
+                text: "You are going to log out and be redirected to login page.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            url: "Login/SignOut",
+                            type: "GET"
+                        });
+                        location.reload();
+                    }
+                });
+        })
+    </script>
+  
+</body>
+</html>

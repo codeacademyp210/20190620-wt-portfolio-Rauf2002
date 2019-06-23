@@ -1,0 +1,122 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <title>Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="~/Areas/Admin/Public/images/icons/favicon.ico" />
+
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Public/vendor/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Public/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Public/fonts/iconic/css/material-design-iconic-font.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Public/vendor/animate/animate.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Public/vendor/css-hamburgers/hamburgers.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Public/vendor/animsition/css/animsition.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Public/vendor/select2/select2.min.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Public/vendor/daterangepicker/daterangepicker.css">
+
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Public/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Areas/Admin/Public/css/main.css">
+
+</head>
+
+<body>
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-85 p-b-20">
+                <form class="login100-form validate-form" method="post" action="@Url.Action("SignIn","Login")">
+                    <span class="login100-form-title p-b-70">
+                        Welcome
+                    </span>
+                    <span class="login100-form-avatar">
+                        <img src="~/Areas/Admin/Public/images/avatar-01.jpg" alt="AVATAR">
+                    </span>
+                    <div class="wrap-input100 validate-input m-t-85 m-b-35" data-validate="Enter username">
+                        <input class="input100" type="text" name="Username">
+                        <span class="focus-input100" data-placeholder="Username"></span>
+                    </div>
+                    <div class="wrap-input100 validate-input m-b-50" data-validate="Enter password">
+                        <input class="input100" type="password" name="Password">
+                        <span class="focus-input100" data-placeholder="Password"></span>
+                    </div>
+                    @if (Session["loginError"] != null)
+                    {
+                        <div class="alert alert-danger">@Session["loginError"]</div>
+                        Session["loginError"] = null;
+                    }
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" type="submit">
+                            Login
+                        </button>
+                    </div>
+                    <ul class="login-more p-t-190">
+                        <li class="m-b-8">
+                            <span class="txt1">
+                                Forgot
+                            </span>
+                            <a href="#" class="txt2">
+                                Username / Password?
+                            </a>
+                        </li>
+                        <li>
+                            <span class="txt1">
+                                Don’t have an account?
+                            </span>
+                            <a href="#" class="txt2">
+                                Sign up
+                            </a>
+                        </li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div id="dropDownSelect1"></div>
+
+    <script src="~/Areas/Admin/Public/vendor/jquery/jquery-3.2.1.min.js" type="26a430554bb3c3d0966d6b84-text/javascript"></script>
+
+    <script src="~/Areas/Admin/Public/vendor/animsition/js/animsition.min.js" type="26a430554bb3c3d0966d6b84-text/javascript"></script>
+
+    <script src="~/Areas/Admin/Public/vendor/bootstrap/js/popper.js" type="26a430554bb3c3d0966d6b84-text/javascript"></script>
+    <script src="~/Areas/Admin/Public/vendor/bootstrap/js/bootstrap.min.js" type="26a430554bb3c3d0966d6b84-text/javascript"></script>
+
+    <script src="~/Areas/Admin/Public/vendor/select2/select2.min.js" type="26a430554bb3c3d0966d6b84-text/javascript"></script>
+
+    <script src="~/Areas/Admin/Public/vendor/daterangepicker/moment.min.js" type="26a430554bb3c3d0966d6b84-text/javascript"></script>
+    <script src="~/Areas/Admin/Public/vendor/daterangepicker/daterangepicker.js" type="26a430554bb3c3d0966d6b84-text/javascript"></script>
+
+    <script src="~/Areas/Admin/Public/vendor/countdowntime/countdowntime.js" type="26a430554bb3c3d0966d6b84-text/javascript"></script>
+
+    <script src="~/Areas/Admin/Public/js/main.js" type="26a430554bb3c3d0966d6b84-text/javascript"></script>
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="26a430554bb3c3d0966d6b84-text/javascript"></script>
+    <script type="26a430554bb3c3d0966d6b84-text/javascript">
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-23581568-13');
+    </script>
+    <script src="../../../../ajax.cloudflare.com/cdn-cgi/scripts/a2bd7673/cloudflare-static/rocket-loader.min.js"
+            data-cf-settings="26a430554bb3c3d0966d6b84-|49" defer=""></script>
+</body>
+
+
+</html>

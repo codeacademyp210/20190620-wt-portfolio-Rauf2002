@@ -1,0 +1,70 @@
+﻿@model Porto.Models.Setting
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_NavbarLayout.cshtml";
+}
+
+<form action="@Url.Action("EditAction",new { Id = Model.Id})" method="post">
+    <div class="container d-flex justify-content-between">
+        <div class="col-5 mt-5 ">
+            <div class="form-group">
+                <label for="Photo">Photo Path</label>
+                <input type="text" name="Photo" class="form-control" id="Photo" placeholder="Photo" value="@Model.Photo">
+            </div>
+            <div class="form-group">
+                <label for="FullName">Full Name</label>
+                <input type="text" name="FullName" class="form-control" id="FullName" placeholder="Name" value="@Model.FullName">
+            </div>
+            <div class="form-group">
+                <label for="Job">Job</label>
+                <input type="text" name="Job" class="form-control" id="Job" placeholder="Job" value="@Model.Job">
+            </div>
+            <div class="form-group">
+                <label for="prevJob">Previous Job</label>
+                <input type="text" name="PrevJob" class="form-control" id="prevJob" placeholder="Previous Job" value="@Model.PrevJob">
+            </div>
+            <div class="form-group">
+                <label for="education">Education</label>
+                <input type="text" name="Education" class="form-control" id="education" placeholder="Education" value="@Model.Education">
+            </div>
+            <div class="form-group">
+                <label for="aboutText">About Text</label>
+                <input type="text" name="AboutText" class="form-control" id="aboutText" placeholder="Text" value="@Model.AboutText">
+            </div>
+        </div>
+        <div class="col-5 mt-5 ml-5">
+            <div class="form-group">
+                <label>Birthday</label>
+                <input type="date" name="Birthday" class="form-control" id="birthday" value="@Model.Birthday">
+            </div>
+            <div class="form-group">
+                <label for="marital">Marital</label>
+                <input type="text" name="Marital" class="form-control" id="marital" placeholder="Marital" value="@Model.Marital">
+            </div>
+            <div class="form-group">
+                <label for="cationality">Nationality</label>
+                <input type="text" name="Nationality" class="form-control" id="nationality" placeholder="Nationality" value="@Model.Nationality">
+            </div>
+            <div class="form-group">
+                <label for="Skype">Skype</label>
+                <input type="text" name="Skype" class="form-control" id="Skype" placeholder="Skype" value="@Model.Skype">
+            </div>
+            <div class="form-group">
+                <label for="Phone">Phone</label>
+                <input type="text" name="Phone" class="form-control" id="Phone" placeholder="Phone" value="@Model.Phone">
+            </div>
+            <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="text" name="Email" class="form-control" id="Email" placeholder="Email" value="@Model.Email">
+            </div>
+            <input type="hidden" name="name" value="@Model.Id" />
+        </div>
+
+    </div>
+    <div class="container">
+        <div class="mt-2 d-flex justify-content-end col-12">
+            <button type="submit" class="btn btn-primary">Update</button>
+        </div>
+    </div>
+</form>
+
