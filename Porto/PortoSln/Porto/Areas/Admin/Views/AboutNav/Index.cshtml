@@ -42,7 +42,7 @@
                 @foreach (var item in Model.AboutNav)
                 {
                     <tr class="table-secondary">
-                        <td class="id">@item.Id</td> 
+                        <td class="id">@item.Id</td>
                         <td>@item.Icon</td>
                         <td>@item.Name</td>
                         <td>
@@ -56,33 +56,36 @@
     </div>
 </div>
 
-<script>
-    $(document).ready(function () {
-        $(".delete").click(function () {
-            swal({
-                title: "Are you sure?",
-                text: "Once it is deleted,it can not be reverted.",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-                .then((willDelete) => {
-                    if (willDelete) {
-                        var myId = $('.id').html();
+@section scripts{
+
+    <script>
+        $(document).ready(function () {
+            $(".delete").click(function () {
+                var _this = this;
+                swal({
+                    title: "Are you sure?",
+                    text: "Once it is deleted,it can not be reverted.",
+                    icon: "warning",
+                    buttons: true,
+                    dangerMode: true,
+                })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            var myId =_this.parentElement.parentElement.firstElementChild.innerHTML;
+                            console.log(_this.parentElement.parentElement.firstElementChild.innerHTML);
 
 
+                            $.ajax({
+                                url: "AboutNav/Delete",
+                                type: "GET",
+                                data: ({ Id: myId })
+                            });
+                            location.reload();
+                        }
+                    });
+            });
 
-                        $.ajax({
-                            url: "AboutNav/Delete",
-                            type: "GET",
-                            data: ({ Id: myId })
-                        });
-                        location.reload();
-                    }
-                });
         });
+    </script>
 
-    });
-</script>
-
-
+}
